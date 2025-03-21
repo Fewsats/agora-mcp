@@ -1,0 +1,21 @@
+[project]
+name = "agora-mcp"
+version = "0.1.5"
+description = "Agora MCP server to search & buy across thousands of online stores"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+ "mcp>=1.4.1",
+ "agora-python>=0.0.1",
+]
+authors = [
+  {name = "Pol Alvarez", email = "pol@fewsats.com"},
+  {name = "Jordi Montes", email = "jordi@fewsats.com"},
+]
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+agora-mcp = "agora_mcp:main"

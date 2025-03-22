@@ -31,9 +31,9 @@ def handle_response(response):
 
 
 @mcp.tool()
-async def search(q: str, count: int = 20, page: int = 1, 
-                price_min: int = 0, price_max: Optional[int] = None, 
-                sort: Optional[str] = None, order: Optional[str] = None) -> Dict:
+async def search(q: str, price_min: int = 0, price_max: int = 100000,
+                count: int = 20, page: int = 1,
+                sort: str = "relevance", order: str = "desc") -> Dict:
     """
     Search for products matching the query.
     
@@ -41,10 +41,10 @@ async def search(q: str, count: int = 20, page: int = 1,
         q: The search query.
         count: The number of products to return per page.
         page: The page number.
-        price_min: The minimum price.
-        price_max: The maximum price.
-        sort: The sort field.
-        order: The sort order.
+        price_min: The minimum price. Optional
+        price_max: The maximum price. Optional
+        sort: The sort field: price:relevance.
+        order: The sort order: asc or desc.
         
     Returns:
         The search results.
@@ -60,6 +60,163 @@ async def search(q: str, count: int = 20, page: int = 1,
     )
     return handle_response(response)
 
+
+@mcp.tool()
+async def get_product_detail(slug: str) -> Dict:
+    """
+    Get details for a specific product.
+    
+    Args:
+        slug: The product slug.
+        
+    Returns:
+        The product details.
+    """
+    response = get_agora().get_product_detail(slug=slug)
+    return handle_response(response)
+
+@mcp.tool()
+async def buy_now(slug: str, product_id: str, variant_id: str, shipping_address: Dict,
+                 user: Dict, quantity: int = 1) -> Dict:
+    """
+    Purchase a product directly. Some products do not have variants, in such cases use the product_id as variant_id too.
+    
+    Args:
+        slug: The product slug.
+        product_id: The product ID as str delimited by double quotes.
+        variant_id: The product variant ID as str delimited by double quotes.
+        quantity: The quantity to purchase.
+        shipping_address: The shipping address.
+        user: The user information.
+        
+    Example:
+        shipping_address = {
+            "addressFirst": "123 Main St",
+            "city": "New York",
+            "state": "NY",
+            "country": "US",
+            "addressName": "Home",
+            "zipCode": "10001"
+        }
+        
+        user = {
+            "firstname": "John",
+            "lastname": "Doe",
+            "email": "john@example.com",
+            "_id": "user123"
+        }
+        
+    Returns:
+        The payment information.
+    """
+    response = get_agora().buy_now(
+        slug=slug,
+        product_id=product_id,
+        variant_id=variant_id,
+        quantity=quantity,
+        shipping_address=shipping_address,
+        user=user
+    )
+    return handle_response(response)
+
+# @mcp.tool()
+# async def get_cart() -> Dict:
+#     """
+#     Get the current user's cart.
+    
+#     Returns:
+#         The cart details.
+#     """
+#     response = get_agora().get_cart()
+#     return handle_response(response)
+
+
+# @mcp.tool()
+# async def add_to_cart(slug: str, product_id: str, variant_id: Optional[str] = None, quantity: int = 1) -> Dict:
+#     """
+#     Add an item to the user's cart. Some products do not have variants, in such cases use the product_id as variant_id too.
+    
+#     Args:
+#         slug: The product slug.
+#         product_id: The product ID.
+#         variant_id: The product variant ID.
+#         quantity: The quantity to add.
+        
+#     Returns:
+#         The updated cart.
+#     """
+#     response = get_agora().add_to_cart(
+#         slug=slug,
+#         product_id=product_id,
+#         variant_id=variant_id,
+#         quantity=quantity
+#     )
+#     return handle_response(response)
+
+
+# @mcp.tool()
+# async def update_cart_item(slug: str, product_id: str, variant_id: str, quantity: int) -> Dict:
+#     """
+#     Update the quantity of an item in the cart. Some products do not have variants, in such cases use the product_id as variant_id too.
+    
+#     Args:
+#         slug: The product slug.
+#         product_id: The product ID.
+#         variant_id: The product variant ID.
+#         quantity: The new quantity.
+        
+#     Returns:
+#         The updated cart.
+#     """
+#     response = get_agora().update_cart_item(
+#         slug=slug,
+#         product_id=product_id,
+#         variant_id=variant_id,
+#         quantity=quantity
+#     )
+#     return handle_response(response)
+
+
+# @mcp.tool()
+# async def clear_cart() -> Dict:
+#     """
+#     Clear all items from the cart.
+    
+#     Returns:
+#         The response from the API.
+#     """
+#     response = get_agora().clear_cart()
+#     return handle_response(response)
+
+
+
+
+
+# @mcp.tool()
+# async def get_order(order_id: int) -> Dict:
+#     """
+#     Get details for a specific order.
+    
+#     Args:
+#         order_id: The order ID.
+        
+#     Returns:
+#         The order details.
+#     """
+#     response = get_agora().get_order(order_id=order_id)
+#     return handle_response(response)
+
+
+# @mcp.tool()
+# async def get_user_orders() -> List[Dict]:
+#     """
+#     Get all orders for the current user.
+    
+#     Returns:
+#         A list of orders.
+#     """
+#     response = get_agora().get_user_orders()
+#     return handle_response(response)
 
 
 def main():

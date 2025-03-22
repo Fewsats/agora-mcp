@@ -13,22 +13,22 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "agora-python", specifier = ">=0.0.3" },
-    { name = "mcp", specifier = ">=1.4.1" },
+    { name = "agora-python", specifier = ">=0.0.4" },
+    { name = "mcp", specifier = ">=1.5.0" },
 ]
 
 [[package]]
 name = "agora-python"
-version = "0.0.3"
+version = "0.0.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cryptography" },
     { name = "fastcore" },
     { name = "httpx" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/55/54/58fc5679ab13d1e540275cf24e84312052368093300b2835047b2e8d7f7a/agora_python-0.0.3.tar.gz", hash = "sha256:93d06db4ee9f4f923cf97b30f61e92522a44b99966be206837a92ea83c7e0338", size = 10608 }
+sdist = { url = "https://files.pythonhosted.org/packages/a6/40/d4c6778bf89c1cd120ad7e7908700345bfd4f3d32a50420bdd42663f2547/agora_python-0.0.4.tar.gz", hash = "sha256:102a3539f80e1322df82f4fc5e5b1c308488fb2d3f0b7a9e8be6cdd332ffe462", size = 10621 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6e/58/85bf12c4677d4a5085018d9662ca622a7c4a1c904615a0c623236b817b63/agora_python-0.0.3-py3-none-any.whl", hash = "sha256:8a955592dbbf814372333565b1b46a6afb3afd2ffb0fb43692fa4e41f4f92313", size = 10473 },
+    { url = "https://files.pythonhosted.org/packages/99/24/13feb215ce2331aebdf133f2eee340ad2a449e8c905095436ba7b2533c2f/agora_python-0.0.4-py3-none-any.whl", hash = "sha256:eb26049a7ccc2fee5230031f87a18731c8212d7abb25f79ed2d8ade4da21bbf1", size = 10472 },
 ]
 
 [[package]]
@@ -265,7 +265,7 @@ wheels = [
 
 [[package]]
 name = "mcp"
-version = "1.4.1"
+version = "1.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -277,9 +277,9 @@ dependencies = [
     { name = "starlette" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/50/cc/5c5bb19f1a0f8f89a95e25cb608b0b07009e81fd4b031e519335404e1422/mcp-1.4.1.tar.gz", hash = "sha256:b9655d2de6313f9d55a7d1df62b3c3fe27a530100cc85bf23729145b0dba4c7a", size = 154942 }
+sdist = { url = "https://files.pythonhosted.org/packages/6d/c9/c55764824e893fdebe777ac7223200986a275c3191dba9169f8eb6d7c978/mcp-1.5.0.tar.gz", hash = "sha256:5b2766c05e68e01a2034875e250139839498c61792163a7b221fc170c12f5aa9", size = 159128 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e8/0e/885f156ade60108e67bf044fada5269da68e29d758a10b0c513f4d85dd76/mcp-1.4.1-py3-none-any.whl", hash = "sha256:a7716b1ec1c054e76f49806f7d96113b99fc1166fc9244c2c6f19867cb75b593", size = 72448 },
+    { url = "https://files.pythonhosted.org/packages/c1/d1/3ff566ecf322077d861f1a68a1ff025cad337417bd66ad22a7c6f7dfcfaf/mcp-1.5.0-py3-none-any.whl", hash = "sha256:51c3f35ce93cb702f7513c12406bbea9665ef75a08db909200b07da9db641527", size = 73734 },
 ]
 
 [[package]]

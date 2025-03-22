@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
  "mcp>=1.4.1",
- "agora-python>=0.0.1",
+ "agora-python>=0.0.3",
 ]
 authors = [
   {name = "Pol Alvarez", email = "pol@fewsats.com"},

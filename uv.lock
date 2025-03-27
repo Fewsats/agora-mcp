@@ -4,7 +4,7 @@ requires-python = ">=3.10"
 
 [[package]]
 name = "agora-mcp"
-version = "0.1.5"
+version = "0.1.7"
 source = { editable = "." }
 dependencies = [
     { name = "agora-python" },
@@ -13,22 +13,22 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "agora-python", specifier = ">=0.0.4" },
+    { name = "agora-python", specifier = ">=0.0.7" },
     { name = "mcp", specifier = ">=1.5.0" },
 ]
 
 [[package]]
 name = "agora-python"
-version = "0.0.4"
+version = "0.0.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cryptography" },
     { name = "fastcore" },
     { name = "httpx" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a6/40/d4c6778bf89c1cd120ad7e7908700345bfd4f3d32a50420bdd42663f2547/agora_python-0.0.4.tar.gz", hash = "sha256:102a3539f80e1322df82f4fc5e5b1c308488fb2d3f0b7a9e8be6cdd332ffe462", size = 10621 }
+sdist = { url = "https://files.pythonhosted.org/packages/9c/1e/01350e9a13fcd164e74718e7e7dfbafc3f9d127a8cfc7b3c68cac5cbb253/agora_python-0.0.7.tar.gz", hash = "sha256:b91c2e56b7fe8a2311a084f02afbb6b655c04c096ba5bae1c7596d2c2cfd6d74", size = 10586 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/99/24/13feb215ce2331aebdf133f2eee340ad2a449e8c905095436ba7b2533c2f/agora_python-0.0.4-py3-none-any.whl", hash = "sha256:eb26049a7ccc2fee5230031f87a18731c8212d7abb25f79ed2d8ade4da21bbf1", size = 10472 },
+    { url = "https://files.pythonhosted.org/packages/a7/44/1e0a24d78fb9df40a9b4e8aaab12d1820934fee27b11beda02ae6014e444/agora_python-0.0.7-py3-none-any.whl", hash = "sha256:9d650602a2b093025dd138dccb1c78c1dd82ef5d99dadbfd9c0d888b22c084f3", size = 10466 },
 ]
 
 [[package]]

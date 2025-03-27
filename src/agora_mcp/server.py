@@ -76,26 +76,28 @@ async def get_product_detail(slug: str) -> Dict:
     return handle_response(response)
 
 @mcp.tool()
-async def buy_now(slug: str, product_id: str, variant_id: str, shipping_address: Dict,
+async def get_payment_offers(slug: str, product_id: str , variant_id: str, shipping_address: Dict,
                  user: Dict, quantity: int = 1) -> Dict:
     """
-    Purchase a product directly. Some products do not have variants, in such cases use the product_id as variant_id too.
-    
+    Get the payment offers for a product. Some products do not have variants, in such cases use the product_id as variant_id too.
+    Make sure to ask the user for the shipping address and user information. 
+    Include all the fields indicated in the example below.
+    If the user does not provide an `addressName`, use the `firstname` and `lastname` to populate it.
     Args:
         slug: The product slug.
-        product_id: The product ID as str delimited by double quotes.
-        variant_id: The product variant ID as str delimited by double quotes.
+        product_id: The product ID as str delimited by escaped double quotes.
+        variant_id: The product variant ID as str delimited by escaped double quotes.
         quantity: The quantity to purchase.
         shipping_address: The shipping address.
         user: The user information.
         
     Example:
         shipping_address = {
+            "addressName": "John Doe",
             "addressFirst": "123 Main St",
             "city": "New York",
             "state": "NY",
             "country": "US",
-            "addressName": "Home",
             "zipCode": "10001"
         }
         
@@ -103,11 +105,10 @@ async def buy_now(slug: str, product_id: str, variant_id: str, shipping_address:
             "firstname": "John",
             "lastname": "Doe",
             "email": "john@example.com",
-            "_id": "user123"
         }
         
     Returns:
-        The payment information.
+        L402 offer that can be paid by L402-compatible clients.
     """
     response = get_agora().buy_now(
         slug=slug,
@@ -192,31 +193,31 @@ async def buy_now(slug: str, product_id: str, variant_id: str, shipping_address:
 
 
 
-# @mcp.tool()
-# async def get_order(order_id: int) -> Dict:
-#     """
-#     Get details for a specific order.
+@mcp.tool()
+async def get_order(order_id: str) -> Dict:
+    """
+    Get details for a specific order.
     
-#     Args:
-#         order_id: The order ID.
+    Args:
+        order_id: The order ID.
         
-#     Returns:
-#         The order details.
-#     """
-#     response = get_agora().get_order(order_id=order_id)
-#     return handle_response(response)
+    Returns:
+        The order details.
+    """
+    response = get_agora().get_order(order_id=order_id)
+    return handle_response(response)
 
 
-# @mcp.tool()
-# async def get_user_orders() -> List[Dict]:
-#     """
-#     Get all orders for the current user.
+@mcp.tool()
+async def get_user_orders() -> List[Dict]:
+    """
+    Get all orders for the current user.
     
-#     Returns:
-#         A list of orders.
-#     """
-#     response = get_agora().get_user_orders()
-#     return handle_response(response)
+    Returns:
+        A list of orders.
+    """
+    response = get_agora().get_user_orders()
+    return handle_response(response)
 
 
 def main():

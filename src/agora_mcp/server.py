@@ -80,18 +80,21 @@ async def get_payment_offers(slug: str, product_id: str , variant_id: str, shipp
                  user: Dict, quantity: int = 1) -> Dict:
     """
     Get the payment offers for a product. Some products do not have variants, in such cases use the product_id as variant_id too.
-    Make sure to ask the user for the shipping address and user information. 
-    Include all the fields indicated in the example below.
+    Before calling this tool, check if the user has already provided the shipping address and user information. 
+    Otherwise, ask the user for the shipping address and user information.
+
     If the user does not provide an `addressName`, use the `firstname` and `lastname` to populate it.
     Args:
         slug: The product slug.
-        product_id: The product ID as str delimited by escaped double quotes.
-        variant_id: The product variant ID as str delimited by escaped double quotes.
+        product_id: The product ID as str delimited by escaped double quotes
+        variant_id: The product variant ID as str delimited by escaped double quotes
         quantity: The quantity to purchase.
         shipping_address: The shipping address.
         user: The user information.
         
     Example:
+        product_id = "\\"1234567890\\""
+        variant_id = "\\"1234567890\\""
         shipping_address = {
             "addressName": "John Doe",
             "addressFirst": "123 Main St",
@@ -217,6 +220,18 @@ async def get_user_orders() -> List[Dict]:
         A list of orders.
     """
     response = get_agora().get_user_orders()
+    return handle_response(response)
+
+
+@mcp.tool()
+async def get_user_info() -> Dict:
+    """
+    Get the current user's profile and shipping addresses.
+    
+    Returns:
+        Dict containing user profile info (firstname, lastname, email) and list of shipping addresses
+    """
+    response = get_agora().get_user_info()
     return handle_response(response)
 
 

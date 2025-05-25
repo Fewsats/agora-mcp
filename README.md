@@ -1,6 +1,9 @@
 # Agora MCP
 
+[![smithery badge](https://smithery.ai/badge/@Fewsats/agora-mcp)](https://smithery.ai/server/@Fewsats/agora-mcp)
+
 An MCP server for searching, discovering, and purchasing products through AI assistants like Claude or Cursor.
+
 
 ## What is Agora MCP?
 
@@ -13,6 +16,14 @@ Agora MCP connects AI assistants to [SearchAgora](https://www.searchagora.com/) 
 - A payment method through any L402-compatible client like [Fewsats](https://fewsats.com)
 
 ## Setting Up the MCP Server
+
+### Installing via Smithery
+
+To install Agora MCP for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@Fewsats/agora-mcp):
+
+```bash
+npx -y @smithery/cli install @Fewsats/agora-mcp --client claude
+```
 
 ### For Cursor
 
@@ -151,4 +162,3 @@ Coming soon:
 ## About SearchAgora
 
 [SearchAgora](https://www.searchagora.com/) is a universal product search engine that helps you discover products from across the web. It offers a seamless shopping experience with comprehensive product information, price comparisons, and streamlined checkout processes.
-

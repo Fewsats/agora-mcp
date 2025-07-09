@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/fewsats-agora-mcp-badge.png)](https://mseep.ai/app/fewsats-agora-mcp)
+
 # Agora MCP
 
 An MCP server for searching, discovering, and purchasing products through AI assistants like Claude or Cursor.
